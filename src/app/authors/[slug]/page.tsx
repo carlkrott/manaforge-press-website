@@ -16,6 +16,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: author.name,
     description: `${author.name} — ${author.tagline}. ${author.genres.join(', ')} author at Manaforge Press.`,
+    alternates: {
+      canonical: `https://manaforge-press.vercel.app/authors/${author.slug}`,
+    },
   };
 }
 
@@ -30,16 +33,36 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
   const authorBooks = getBooksByAuthor(slug);
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
+      {/* Author Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: author.name,
+            description: author.bio.substring(0, 200),
+            url: `https://manaforge-press.vercel.app/authors/${author.slug}`,
+            jobTitle: 'Author',
+            worksFor: {
+              '@type': 'Organization',
+              name: 'Manaforge Press',
+              url: 'https://manaforge-press.vercel.app',
+            },
+            knowsAbout: author.genres,
+          }),
+        }}
+      />
       {/* Author header */}
-      <div className="flex items-start gap-6 mb-12">
-        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-amber/20 to-brand-gold/10 border border-border-subtle">
-          <span className="text-3xl font-bold text-brand-amber" style={{ fontFamily: 'var(--font-heading)' }}>
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-12 text-center sm:text-left">
+        <div className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-amber/20 to-brand-gold/10 border border-border-subtle">
+          <span className="text-2xl sm:text-3xl font-bold text-brand-amber" style={{ fontFamily: 'var(--font-heading)' }}>
             {author.name.charAt(0)}
           </span>
         </div>
         <div>
-          <h1 className="text-4xl font-bold mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
             {author.name}
           </h1>
           <p className="text-brand-amber italic text-lg mb-3">{author.tagline}</p>

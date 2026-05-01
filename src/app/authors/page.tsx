@@ -5,13 +5,14 @@ import { authors, getBooksByAuthor, getGenreClass } from '@/data/content';
 export const metadata: Metadata = {
   title: 'Authors',
   description: 'Meet the authors behind Manaforge Press — grimdark, LitRPG, progression fantasy, and dungeon crawler writers.',
+  alternates: { canonical: 'https://manaforge-press.vercel.app/authors' },
 };
 
 export default function AuthorsPage() {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-16">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
           Our Authors
         </h1>
         <p className="text-text-muted max-w-xl mx-auto">

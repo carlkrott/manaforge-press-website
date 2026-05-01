@@ -14,6 +14,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: book.title,
     description: book.shortBlurb,
+    alternates: {
+      canonical: `https://manaforge-press.vercel.app/books/${book.slug}`,
+    },
   };
 }
 
@@ -29,11 +32,41 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
   const statusColor = book.status === 'editing' ? 'text-brand-amber bg-brand-amber/10' : 'text-text-dim bg-bg-surface';
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
+      {/* Book Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Book',
+            name: book.title,
+            description: book.shortBlurb,
+            author: {
+              '@type': 'Person',
+              name: book.authorName,
+              url: `https://manaforge-press.vercel.app/authors/${book.authorSlug}`,
+            },
+            genre: book.genres,
+            ...(book.seriesName && {
+              isPartOf: {
+                '@type': 'BookSeries',
+                name: book.seriesName,
+                position: book.bookNumber,
+              },
+            }),
+            publisher: {
+              '@type': 'Organization',
+              name: 'Manaforge Press',
+              url: 'https://manaforge-press.vercel.app',
+            },
+          }),
+        }}
+      />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {/* Book cover */}
         <div className="md:col-span-1">
-          <div className="book-cover flex items-center justify-center p-8 sticky top-24">
+          <div className="book-cover flex items-center justify-center p-8 md:sticky md:top-24">
             <div className="relative z-10 text-center">
               <h2 className="text-2xl font-bold text-text-primary" style={{ fontFamily: 'var(--font-heading)' }}>
                 {book.title}

@@ -10,18 +10,18 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-amber/5 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32 text-center">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-16 sm:py-24 md:py-32 text-center">
           <div className="animate-fade-in-up">
             <p className="text-brand-amber font-semibold text-sm uppercase tracking-[0.2em] mb-4">
               Fantasy &amp; LitRPG Publishing
             </p>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
               Stories Forged in{' '}
               <span className="bg-gradient-to-r from-brand-amber to-brand-gold bg-clip-text text-transparent">
                 Darkness
               </span>
             </h1>
-            <p className="text-text-muted text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+            <p className="text-text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
               Multiple authors. One forge. Grimdark epics, progression fantasy, and dungeon crawler adventures — discover your next obsession.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -43,9 +43,9 @@ export default function HomePage() {
       </section>
 
       {/* Featured Books */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
             From the Forge
           </h2>
           <p className="text-text-muted max-w-xl mx-auto">
@@ -89,9 +89,9 @@ export default function HomePage() {
       </section>
 
       {/* Authors */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
             The Authors
           </h2>
           <p className="text-text-muted max-w-xl mx-auto">
@@ -130,9 +130,9 @@ export default function HomePage() {
       </section>
 
       {/* Newsletter */}
-      <section id="newsletter" className="mx-auto max-w-7xl px-6 py-16">
-        <div className="rounded-2xl glass-panel border border-border-subtle p-8 md:p-12 text-center amber-glow">
-          <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+      <section id="newsletter" className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
+        <div className="rounded-2xl glass-panel border border-border-subtle p-6 sm:p-8 md:p-12 text-center amber-glow">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
             Join the Forge
           </h2>
           <p className="text-text-muted max-w-lg mx-auto mb-8">

@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'News, author spotlights, release announcements, and free content from Manaforge Press.',
+  alternates: { canonical: 'https://manaforge-press.vercel.app/blog' },
 };
 
 const samplePosts = [
@@ -35,9 +36,9 @@ const samplePosts = [
 
 export default function BlogPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
           The Forge Blog
         </h1>
         <p className="text-text-muted max-w-xl mx-auto">

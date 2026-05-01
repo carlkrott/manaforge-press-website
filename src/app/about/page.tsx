@@ -4,12 +4,13 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'About',
   description: 'Manaforge Press is a fantasy and LitRPG publishing imprint. Discover our authors, our worlds, and our mission.',
+  alternates: { canonical: 'https://manaforge-press.vercel.app/about' },
 };
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
-      <h1 className="text-4xl font-bold mb-8 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
         About Manaforge Press
       </h1>
 
@@ -38,7 +39,7 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
           What We Forge
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             {
               genre: 'Grimdark Fantasy',
@@ -87,7 +88,7 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
           By the Numbers
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {[
             { label: 'Active Authors', value: '3' },
             { label: 'Completed Books', value: '4' },
@@ -113,7 +114,7 @@ export default function AboutPage() {
           <p className="text-text-muted mb-4">
             We publish on a monthly non-conflicting schedule across our authors. That means a new book or series entry every month — no long waits between releases.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
               { author: 'R.K. Ashvane', genre: 'Grimdark Fantasy', next: 'Iron Hymn' },
               { author: 'D.F.Bruno', genre: 'LitRPG / Science Fantasy', next: 'VoidWalker, The Awakening' },

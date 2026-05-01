@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: 'https://manaforge-press.vercel.app',
+  },
 };
 
 export default function RootLayout({
@@ -62,6 +65,20 @@ export default function RootLayout({
       className={`${crimsonPro.variable} ${sourceSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg-deep">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Manaforge Press',
+              url: 'https://manaforge-press.vercel.app',
+              description: 'Fantasy and LitRPG publishing imprint. Multiple authors, one forge.',
+              logo: 'https://manaforge-press.vercel.app/favicon.ico',
+              sameAs: [],
+            }),
+          }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

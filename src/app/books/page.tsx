@@ -14,9 +14,9 @@ export default function BooksPage() {
     : books.filter((b) => b.genres.includes(activeGenre));
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-16">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
           Book Catalog
         </h1>
         <p className="text-text-muted max-w-xl mx-auto">
