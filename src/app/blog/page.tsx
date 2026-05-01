@@ -10,7 +10,7 @@ const samplePosts = [
   {
     slug: 'welcome-to-the-forge',
     title: 'Welcome to the Forge',
-    excerpt: 'Manaforge Press is born — a new publishing imprint bringing you grimdark epics, progression fantasy, and dungeon-crawling adventures from multiple pen names.',
+    excerpt: 'Manaforge Press is born — a new publishing imprint bringing you grimdark epics, progression fantasy, and dungeon-crawling adventures from multiple authors.',
     date: '2026-05-01',
     category: 'Announcement',
     readTime: '3 min',

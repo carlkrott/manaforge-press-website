@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Manaforge Press",
   },
   description:
-    "A fantasy and LitRPG publishing imprint. Discover grimdark epics, progression fantasy, and dungeon crawler adventures from multiple pen names under one forge.",
+    "A fantasy and LitRPG publishing imprint. Discover grimdark epics, progression fantasy, and dungeon crawler adventures from multiple authors under one forge.",
   keywords: [
     "fantasy publishing",
     "LitRPG",
@@ -37,16 +37,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Manaforge Press — Fantasy & LitRPG Publishing",
     description:
-      "Discover grimdark epics, progression fantasy, and dungeon crawler adventures from multiple pen names under one forge.",
-    url: "https://manaforge-press-website.vercel.app",
-    siteName: "Manaforge Press",
-    type: "website",
+      "Discover grimdark epics, progression fantasy, and dungeon crawler adventures from multiple authors under one forge.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Manaforge Press — Fantasy & LitRPG Publishing",
     description:
-      "Discover grimdark epics, progression fantasy, and dungeon crawler adventures from multiple pen names under one forge.",
+      "Discover grimdark epics, progression fantasy, and dungeon crawler adventures from multiple authors under one forge.",
   },
   robots: {
     index: true,

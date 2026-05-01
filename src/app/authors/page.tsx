@@ -4,7 +4,7 @@ import { authors, getBooksByAuthor, getGenreClass } from '@/data/content';
 
 export const metadata: Metadata = {
   title: 'Authors',
-  description: 'Meet the pen names behind Manaforge Press — grimdark, LitRPG, progression fantasy, and dungeon crawler authors.',
+  description: 'Meet the authors behind Manaforge Press — grimdark, LitRPG, progression fantasy, and dungeon crawler writers.',
 };
 
 export default function AuthorsPage() {
@@ -15,7 +15,7 @@ export default function AuthorsPage() {
           Our Authors
         </h1>
         <p className="text-text-muted max-w-xl mx-auto">
-          Each pen name brings a unique voice and world to the forge. From grimdark epics to dungeon-crawling adventures.
+          Each author brings a unique voice and world to the forge. From grimdark epics to dungeon-crawling adventures.
         </p>
       </div>
 

@@ -20,7 +20,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-text-dim text-sm leading-relaxed">
-              Fantasy and LitRPG publishing. Multiple pen names, one forge.
+              Fantasy and LitRPG publishing. Multiple authors, one forge.
             </p>
           </div>
 

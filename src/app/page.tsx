@@ -22,7 +22,7 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="text-text-muted text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
-              Multiple pen names. One forge. Grimdark epics, progression fantasy, and dungeon crawler adventures — discover your next obsession.
+              Multiple authors. One forge. Grimdark epics, progression fantasy, and dungeon crawler adventures — discover your next obsession.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -95,7 +95,7 @@ export default function HomePage() {
             The Authors
           </h2>
           <p className="text-text-muted max-w-xl mx-auto">
-            Each pen name has a distinct voice, genre, and world to explore.
+            Each author brings a distinct voice, genre, and world to explore.
           </p>
         </div>
 
