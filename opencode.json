@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "gsd-planner": { "model": "zai/glm-5.1" },
+    "gsd-plan-checker": { "model": "zai/glm-5.1" },
+    "gsd-phase-researcher": { "model": "zai/glm-5.1" },
+    "gsd-roadmapper": { "model": "zai/glm-5.1" },
+    "gsd-project-researcher": { "model": "zai/glm-5.1" },
+    "gsd-research-synthesizer": { "model": "zai/glm-5.1" },
+    "gsd-codebase-mapper": { "model": "zai/glm-5.1" },
+    "gsd-executor": { "model": "minimax/MiniMax-M2.7" },
+    "gsd-debugger": { "model": "minimax/MiniMax-M2.7" },
+    "gsd-verifier": { "model": "zai/glm-5.1" },
+    "gsd-integration-checker": { "model": "zai/glm-5.1" }
+  }
+}
