@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { getAllPostSummaries, getAllCategories } from '@/lib/blog';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -7,34 +8,18 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://manaforge-press.vercel.app/blog' },
 };
 
-const samplePosts = [
-  {
-    slug: 'welcome-to-the-forge',
-    title: 'Welcome to the Forge',
-    excerpt: 'Manaforge Press is born — a new publishing imprint bringing you grimdark epics, progression fantasy, and dungeon-crawling adventures from multiple authors.',
-    date: '2026-05-01',
-    category: 'Announcement',
-    readTime: '3 min',
-  },
-  {
-    slug: 'rk-ashvane-spotlight',
-    title: 'Author Spotlight: R.K. Ashvane',
-    excerpt: 'Meet the mind behind Songs of the Fallen. Classic prose meets the dark fantasy edge — discover what makes this grimdark series unmissable.',
-    date: '2026-05-01',
-    category: 'Author Spotlight',
-    readTime: '5 min',
-  },
-  {
-    slug: 'voidwalker-world-preview',
-    title: 'World Preview: The Caelus Universe',
-    excerpt: 'Corporate-controlled void stations, incomprehensible entities, and a maintenance worker who holds the key to reality. Explore the world of VoidWalker.',
-    date: '2026-05-01',
-    category: 'World Building',
-    readTime: '4 min',
-  },
-];
+const categoryStyles: Record<string, string> = {
+  Announcement: 'genre-progression',
+  'Author Spotlight': 'genre-litrpg',
+  'World Building': 'genre-grimdark',
+  Release: 'genre-dungeon',
+  'Free Content': 'genre-litrpg',
+};
 
 export default function BlogPage() {
+  const posts = getAllPostSummaries();
+  const categories = ['All', ...getAllCategories()];
+
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
       <div className="text-center mb-8 sm:mb-12">
@@ -46,34 +31,67 @@ export default function BlogPage() {
         </p>
       </div>
 
-      {/* Posts */}
-      <div className="space-y-6">
-        {samplePosts.map((post) => (
-          <article
-            key={post.slug}
-            className="rounded-xl glass-panel border border-border-subtle p-6 hover:border-brand-amber/20 transition-all group"
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <span className="genre-badge genre-progression text-xs">{post.category}</span>
-              <span className="text-text-dim text-xs">{post.date}</span>
-              <span className="text-text-dim text-xs">· {post.readTime} read</span>
-            </div>
-            <h2 className="text-xl font-bold text-text-primary group-hover:text-brand-amber transition-colors mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
-              {post.title}
-            </h2>
-            <p className="text-text-muted text-sm leading-relaxed">
-              {post.excerpt}
-            </p>
-          </article>
-        ))}
-      </div>
+      {/* Category filter */}
+      {categories.length > 1 && (
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {categories.map((cat) => (
+            <span
+              key={cat}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+                cat === 'All'
+                  ? 'bg-brand-amber text-bg-deep'
+                  : 'border border-border-subtle text-text-dim'
+              }`}
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
+      )}
 
-      {/* Empty state note */}
-      <div className="mt-12 rounded-xl border border-dashed border-border-subtle p-8 text-center">
-        <p className="text-text-dim">
-          Full blog posts coming soon. Subscribe to the newsletter to get notified when we publish.
-        </p>
-      </div>
+      {/* Posts */}
+      {posts.length > 0 ? (
+        <div className="space-y-6">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="block rounded-xl glass-panel border border-border-subtle p-6 hover:border-brand-amber/20 transition-all group"
+            >
+              <article>
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <span className={`genre-badge text-xs ${categoryStyles[post.category] || 'genre-progression'}`}>
+                    {post.category}
+                  </span>
+                  <span className="text-text-dim text-xs">
+                    {new Date(post.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </span>
+                  <span className="text-text-dim text-xs">· {post.readTime} read</span>
+                </div>
+                <h2 className="text-xl font-bold text-text-primary group-hover:text-brand-amber transition-colors mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+                  {post.title}
+                </h2>
+                <p className="text-text-muted text-sm leading-relaxed">
+                  {post.excerpt}
+                </p>
+                {post.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {post.tags.slice(0, 3).map((tag) => (
+                      <span key={tag} className="text-text-dim text-xs">#{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </article>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-xl border border-dashed border-border-subtle p-8 text-center">
+          <p className="text-text-dim">
+            No posts yet. Subscribe to the newsletter to get notified when we publish.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
